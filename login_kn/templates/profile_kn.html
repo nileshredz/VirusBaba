@@ -1,0 +1,374 @@
+{% extends 'base.html' %}
+{% load static%}
+<head>
+    
+     
+</head>
+<body>
+    {% block content %}
+    {% csrf_token %}
+   
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: transparent;">
+        <a class="navbar-brand" href="#">
+    <img src="{% static 'logo.png' %}" width="40%"  alt=""></a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" style="background-color:#D0D3D4;"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" style="color:white">ಮನೆ <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" style="color:white" data-toggle="modal" data-target="#staticAbout" >ಬಗ್ಗೆ</a>
+                </li>
+                <!--Modal for About-->
+                <div class="modal fade" id="staticAbout" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">ಬಗ್ಗೆ:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src={% static 'logob.png' %} />
+        <p style="color:black;">ವೈರಸ್ ಬಾಬಾ ಒಂದು ಅಪ್ಲಿಕೇಶನ್ ಆಗಿದ್ದು ಅದು 1.3 ಬಿಲಿಯನ್ ಭಾರತೀಯರನ್ನು ಪರೀಕ್ಷಿಸಲು ಅಸಾಧ್ಯವಾಗಿದೆ. ಈ ಅಪ್ಲಿಕೇಶನ್ COVID-19 ರ ಸಾಮಾಜಿಕ ದೂರ ಮತ್ತು ಟೆಸ್ಟಿನ್ ಅನ್ನು ಸುಲಭವಾಗಿ ಉತ್ತೇಜಿಸುತ್ತದೆ. ನೀವು ಉತ್ತರಿಸುವ ಪ್ರಶ್ನಾವಳಿಗಳನ್ನು ಅವಲಂಬಿಸಿ COVID-19 ರ ಸ್ಕೋರ್ ಅನ್ನು ನಿಮಗೆ ಸೂಚಿಸುತ್ತದೆ ಮತ್ತು ನಿಮ್ಮ ಹತ್ತಿರದ ಪರೀಕ್ಷಾ ಕೇಂದ್ರಗಳಲ್ಲಿ ನೇಮಕಾತಿಯನ್ನು ಕಾಯ್ದಿರಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ. </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">ಮುಚ್ಚಿ</button>
+        <button type="button" class="btn btn-primary">ಅರ್ಥವಾಯಿತು</button>
+      </div>
+    </div>
+  </div>
+</div>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" style="color:white" data-toggle="modal" data-target="#staticContact">ಸಂಪರ್ಕಿಸಿ</a>
+                </li>
+                <!--Modal for Contact-->
+                <div class="modal fade" id="staticContact" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">ಸಂಪರ್ಕಿಸಿ:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src={% static 'logob.png' %} />
+        <p style="color:black;" align="center">ಅಪ್ಲಿಕೇಶನ್ ಅಭಿವೃದ್ಧಿಪಡಿಸಿದೆ: Nilesh .D. Ohol </p>
+        <p>Email ID:<a href="">nileshohol@live.in</a></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">ಮುಚ್ಚಿ</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" style="color:white" aria-expanded="false">
+                       ಡೇಟಾ ದೃಶ್ಯೀಕರಣ
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">ಭಾರತಕ್ಕೆ ಅಂಕಿಅಂಶಗಳು</a>
+                        <a class="dropdown-item"
+                           href="https://public.tableau.com/profile/nilesh.ohol#!/vizhome/COVID-1928042020/Dashboard1">ವಿಶ್ವದ ಅಂಕಿಅಂಶಗಳು</a>
+                    </div>
+                </li>
+            </ul><br><div class="logout">
+    <button type="button" class="btn btn-dark" style="background:transparent;font-family:montserrat;" onClick="location.href='{% url 'log' %}'">ಲಾಗ್ ಔಟ್</button>
+
+    </div>
+        </div>
+    </nav>
+       
+        <br>
+        <h1 class="text-center" id ="welcome" style="font-family:montserrat;color:white">ವೈರಸ್‌ಬಾಬಾಗೆ ಸುಸ್ವಾಗತ</h1>
+    <div type="text" id="change" style="color:white;left:50%;"></div>
+        <br>
+        <br>
+
+        
+
+        <br><br><br><br><br><br>
+            <script src={% static 'calculations.js' %}></script>
+
+        <div class="card" style="width:60rem;margin-left:auto;margin-right:auto;">
+            <h5 class="card-title" style="font-family:montserrat">ನೀಡಿರುವ ಪ್ರಶ್ನಾವಳಿಗೆ ಉತ್ತರಿಸಿ:</h5>
+            <img class="card-img-top-center" src="{% static 'question-dot.jpg' %}" alt="Card image cap" style="height:50%;">
+            <div class="card-body" align="middle">
+                <!--Questions and Answers here-->
+                <div class="row">
+                    <div class="col-4">
+                        <div class="list-group" id="list-tab" role="tablist">
+                            <a class="list-group-item list-group-item-action active" id="list-q1-list"
+                                data-toggle="list" href="#list-q1" role="tab" aria-controls="q1">Q1</a>
+                            <a class="list-group-item list-group-item-action" id="list-q2-list" data-toggle="list"
+                                href="#list-q2" role="tab" aria-controls="q2">Q2</a>
+                            <a class="list-group-item list-group-item-action" id="list-q3-list" data-toggle="list"
+                                href="#list-q3" role="tab" aria-controls="q3">Q3</a>
+                            <a class="list-group-item list-group-item-action" id="list-q4-list" data-toggle="list"
+                                href="#list-q4" role="tab" aria-controls="q4">Q4</a>
+                            <a class="list-group-item list-group-item-action" id="list-q5-list" data-toggle="list"
+                                href="#list-q5" role="tab" aria-controls="q5">Q5</a>
+                            <a class="list-group-item list-group-item-action" id="list-q6-list" data-toggle="list"
+                                href="#list-q6" role="tab" aria-controls="q6">Q6</a>
+                            <a class="list-group-item list-group-item-action" id="list-q7-list" data-toggle="list"
+                                href="#list-q7" role="tab" aria-controls="q7">Q7</a>
+                        </div>
+                    </div>
+
+                    <div class="col-8">
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="list-q1" role="tabpanel"
+                                aria-labelledby="list-q1-list">ನೀವು ವಿದೇಶಿ ದೇಶದಿಂದ ಬಂದಿದ್ದೀರಾ??
+                                <br><br>
+                                <!--Radio buttons for Q1-->
+                                <div class='container'>
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="options" id="q1_1" onclick="add5()" >ಹೌದು
+                                        </label>
+
+                                        <label class="btn btn-secondary active">
+                                            <input type="radio" name="options" id="q1_2" checked onclick="add2()"> ಇಲ್ಲ
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="list-q2" role="tabpanel" aria-labelledby="list-q2-list">ಯಾವುದು
+                                ನೀವು ದೇಶದಿಂದ ಬಂದಿದ್ದೀರಿ?
+                                <br><br>
+                                <!--Select for the Countries Arrived from-->
+                                <select class="form-control" onchange="myFunction(this)">
+                                    <option>None</option>
+                                    <option>United States of America</option>
+                                    <option>United Kigdom</option>
+                                    <option>Iran</option>
+                                    <option>Spain</option>
+                                    <option>Italy</option>
+                                    <option>Germany</option>
+                                    <option>UAE</option>
+                                    <option>Russia</option>
+                                    <option>Australia</option>
+                                    <option>China</option>
+                                </select>
+
+                            </div>
+                            <div class="tab-pane fade" id="list-q3" role="tabpanel" aria-labelledby="list-q3-list">ಏನು
+                                ನೀವು ಅನುಭವಿಸುತ್ತಿರುವ ಲಕ್ಷಣಗಳು?.
+                                <br><br>
+                                <!--Checkboxes for the symptoms-->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="q3_1" onclick="add2()" >
+                                    <label class="form-check-label" for="q3_1">
+                                        ತುಂಬಾ ಜ್ವರ
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="q3_2" onclick="add2()">
+                                    <label class="form-check-label" for="q3_2">
+                                        ಒಣ ಕೆಮ್ಮು
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="q3_3" onclick="add3()">
+                                    <label class="form-check-label" for="q3_3">
+                                        ಸೌಮ್ಯ ಉಸಿರಾಟದ ಸಮಸ್ಯೆ
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="q3_4" onclick ="add3()">
+                                    <label class="form-check-label" for="q3_4">
+                                        ತೀವ್ರ ಉಸಿರಾಟದ ಸಮಸ್ಯೆ
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="q3_5" onclick="add1()">
+                                    <label class="form-check-label" for="q3_5">
+                                        ಅತಿಸಾರ
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="q3_6" onclick="add1()">
+                                    <label class="form-check-label" for="q3_6">
+                                        ಆಯಾಸ
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" onclick="disable()" value="" id="q3_7" >
+                                    <label class="form-check-label" for="q3_7" >
+                                        ಯಾವುದೂ
+                                    </label>
+                                </div>
+                            </div>
+                            <script type="text/javascript">
+                                    
+                               
+                                
+                                                                   
+                                
+                            
+                            
+                            </script>
+                            <div class="tab-pane fade" id="list-q4" role="tabpanel" aria-labelledby="list-q4-list">
+                                ಡು
+                                ನೀವು ಹೊಗೆ?
+                                <br><br>
+                                <!--Radio buttons for Q4-->
+                                <div class='container'>
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="options" id="option2" onclick="add3()">ಹೌದು
+                                        </label>
+
+                                        <label class="btn btn-secondary active">
+                                            <input type="radio" name="options" id="option1" checked> ಇಲ್ಲ
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="list-q5" role="tabpanel" aria-labelledby="list-q5-list">
+                                ಡು
+                                ನೀವು ಯಾವುದೇ ವೈದ್ಯಕೀಯ ಸ್ಥಿತಿಯನ್ನು ಹೊಂದಿದ್ದೀರಾ?
+                                <br><br>
+                                <!--Checkboxes for the Medical Condition-->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="q5_1" onclick="add3()">
+                                    <label class="form-check-label" for="q5_1">
+                                       ಹೃದಯ ಸಮಸ್ಯೆ
+                                    </label>
+                                </div>
+                                <br>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="q5_2" onclick="add3()">
+                                    <label class="form-check-label" for="q5_2">
+                                        ರಕ್ತದೊತ್ತಡದ ಸಮಸ್ಯೆ
+                                    </label>
+                                </div>
+                                <br>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="q5_3" onclick="add2()">
+                                    <label class="form-check-label" for="q5_3">
+                                        ಮಧುಮೇಹ
+                                    </label>
+                                </div>
+                                <br>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="q5_4" onclick ="add2()">
+                                    <label class="form-check-label" for="q5_4">
+                                        ಮೂಳೆಗಳ ಸಂಚಿಕೆ
+                                    </label>
+                                </div>
+                                <br>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" onclick="disable2()" value="" id="q5_5" >
+                                    <label class="form-check-label"  for="q5_5">
+                                        ಯಾವುದೂ
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="list-q6" role="tabpanel" aria-labelledby="list-q6-list">
+                                ನಿಮ್ಮ ಕುಟುಂಬದಲ್ಲಿ ಎಷ್ಟು ಸದಸ್ಯರು?
+                                <br><br>
+                                <!--Spinner for the Family-->
+                                <select class="form-control" >
+                                    <option>ಯಾವುದೂ</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>4+</option>
+
+                                </select>
+
+                            </div>
+                            <div class="tab-pane fade" id="list-q7" role="tabpanel" aria-labelledby="list-q7-list">
+                                ಹ್ಯಾವ್
+                                ನೀವು ಇತ್ತೀಚೆಗೆ ವೈದ್ಯರನ್ನು ಭೇಟಿ ಮಾಡಿದ್ದೀರಿ?
+                                <br><br>
+                                <!--Radio buttons for Q7-->
+                                <div class='container'>
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="options" id="option2" onclick="add3()">ಹೌದು
+                                        </label>
+
+                                        <label class="btn btn-secondary active">
+                                            <input type="radio" name="options" id="option1" checked onclick="add2()"> ಇಲ್ಲ
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-outline-success"  data-toggle="modal" data-target="#exampleModalLong"  >ಸಲ್ಲಿಸು</button>
+            <!-- Modal when Susceptibility for any modification required, Modal First-->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">ಮೋಡಲ್ ಶೀರ್ಷಿಕೆ</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ನೀವು ಸೂಕ್ತ ಉತ್ತರಗಳನ್ನು ನೀಡಿದ್ದೀರಿ ಎಂದು ನಿಮಗೆ ಖಚಿತವಾಗಿದೆಯೇ??
+      </div>
+      <div class="modal-footer">
+        <button type="button"  class="btn btn-secondary" data-dismiss="modal">ಉತ್ತರಗಳನ್ನು ಬದಲಾಯಿಸಿ</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong2" id="btn2">ಹೌದು</button>
+        <!--Modal for Yes in Second Modal-->
+        <div class="modal fade" id="exampleModalLong2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle" style="font-family:montserrat;">ನಿಮ್ಮ ಸೂಕ್ಷ್ಮತೆ ಸ್ಕೋರ್ ಆಗಿದೆ:</h5>
+      </div>
+      <div class="modal-body">
+        <h1 class="text-center" id ="sscore" style="font-family:montserrat;"></h1>
+        <p style="color:black;"id ="score_des">ನೀವು ಹೆಚ್ಚಿನ ಸಂವೇದನಾಶೀಲ ಸ್ಕೋರ್ ಹೊಂದಿದ್ದೀರಿ, ದಯವಿಟ್ಟು ಕೆಳಗೆ ಕ್ಲಿಕ್ ಮಾಡಿ </p>
+    </div>
+      <div class="modal-footer">
+        <a type="button" class="btn btn-primary" style="color:white;" href="http://127.0.0.1:8000/profile/maps/" >ನೇಮಕಾತಿಯನ್ನು ಕಾಯ್ದಿರಿಸಿ</a>
+      </div>
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+            <button type="button" class="btn btn-outline-danger">ಮರುಹೊಂದಿಸಿ</button>
+
+        </div>
+        <br>
+        <br>
+
+
+        <br><br><br><br><br><br>
+        <div class="footer-copyright text-center py-3" style="color:white">© 2020 Copyright:
+            <a href="#"> virusbaba.com</a>
+        </div>
+        <!-- Copyright -->
+
+
+        <!-- Footer -->
+        <p translate="yes" style="font-family:montserrat;color:white;" align="center">Application Developed by:
+            Nilesh
+            Ohol.</p>
+
+
+    </div>
+    {% endblock %}
+</body>

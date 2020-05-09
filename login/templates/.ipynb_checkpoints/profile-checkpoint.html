@@ -1,0 +1,377 @@
+{% extends 'base.html' %}
+{% load static%}
+<head>
+  <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>   
+<script src={% static 'static/calculations.js' %}></script>     
+</head>
+<body>
+    {% block content %}
+    {% csrf_token %}
+   
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: transparent;">
+            <a class="navbar-brand" href="http://127.0.0.1:8000/">
+    <img src="{% static 'logo.png' %}" width="40%"  alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="background-color:#D0D3D4;"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" style="color:white">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                   <li class="nav-item">
+                    <a class="nav-link" href="#" style="color:white" data-toggle="modal" data-target="#staticAbout" >About</a>
+                </li>
+                <!--Modal for About-->
+                <div class="modal fade" id="staticAbout" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">About:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src={% static 'logob.png' %} />
+        <p style="color:black;">Virus Baba is an Application which Enables the Impossible to Test 1.3 Billion Indians possible. This application Promotes Social Distancing and Testin of COVID-19 with ease. Depending upon the Questionnaires you Answer it Suggests you Susceptible Score of COVID-19 and Helps you book an Appointment in your Nearest Test Centres. </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" style="color:white" data-toggle="modal" data-target="#staticContact">Contact</a>
+                </li>
+                <!--Modal for Contact-->
+                <div class="modal fade" id="staticContact" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Contact:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src={% static 'logob.png' %} />
+        <p style="color:black;" align="center">Application Developed by: Nilesh .D. Ohol </p>
+        <p>Email ID:<a href="">nileshohol@live.in</a></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" style="color:white" aria-expanded="false">
+                            Data Visualization
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Statistics for India</a>
+                            <a class="dropdown-item"
+                                href="https://public.tableau.com/profile/nilesh.ohol#!/vizhome/COVID-1928042020/Dashboard1">Statistics
+                                for the World</a>
+                        </div>
+                    </li>
+                </ul>
+            </div> <br><div class="logout">
+    <button type="button" class="btn btn-dark" style="background:transparent;font-family:montserrat;" onClick="location.href='{% url 'log'%}'">Logout</button>
+
+    </div>
+        </nav>
+       
+        <br>
+        <h1 class="text-center" id ="welcome" style="font-family:montserrat;color:white">Welcome to VirusBaba</h1>
+    <div type="text" id="change" style="color:white;left:50%;"></div>
+        <br>
+        <br>
+<div id = "mydiv">
+         Click on this to see a dialogue box.
+      </div>
+        
+
+        <br><br><br><br><br><br>
+            <script src={% static 'calculations.js' %}></script>
+
+        <div class="card" style="width:60rem;margin-left:auto;margin-right:auto;">
+            <h5 class="card-title" style="font-family:montserrat">Answer the given Questionnaire:</h5>
+            <img class="card-img-top-center" src="{% static 'question-dot.jpg' %}" alt="Card image cap" style="height:50%;">
+            <div class="card-body" align="middle">
+                <!--Questions and Answers here-->
+                <div class="row">
+                    <div class="col-4">
+                        <div class="list-group" id="list-tab" role="tablist">
+                            <a class="list-group-item list-group-item-action active" id="list-q1-list"
+                                data-toggle="list" href="#list-q1" role="tab" aria-controls="q1">Q1</a>
+                            <a class="list-group-item list-group-item-action" id="list-q2-list" data-toggle="list"
+                                href="#list-q2" role="tab" aria-controls="q2">Q2</a>
+                            <a class="list-group-item list-group-item-action" id="list-q3-list" data-toggle="list"
+                                href="#list-q3" role="tab" aria-controls="q3">Q3</a>
+                            <a class="list-group-item list-group-item-action" id="list-q4-list" data-toggle="list"
+                                href="#list-q4" role="tab" aria-controls="q4">Q4</a>
+                            <a class="list-group-item list-group-item-action" id="list-q5-list" data-toggle="list"
+                                href="#list-q5" role="tab" aria-controls="q5">Q5</a>
+                            <a class="list-group-item list-group-item-action" id="list-q6-list" data-toggle="list"
+                                href="#list-q6" role="tab" aria-controls="q6">Q6</a>
+                            <a class="list-group-item list-group-item-action" id="list-q7-list" data-toggle="list"
+                                href="#list-q7" role="tab" aria-controls="q7">Q7</a>
+                        </div>
+                    </div>
+
+                    <div class="col-8">
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="list-q1" role="tabpanel"
+                                aria-labelledby="list-q1-list">Have you Arrived from a Foreign Country?
+                                <br><br>
+                                <!--Radio buttons for Q1-->
+                                <div class='container'>
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="options" id="q1_1" onclick="add5()" >Yes
+                                        </label>
+
+                                        <label class="btn btn-secondary active">
+                                            <input type="radio" name="options" id="q1_2" checked onclick="add2()"> No
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="list-q2" role="tabpanel" aria-labelledby="list-q2-list">Which
+                                Country have you Arrived from?
+                                <br><br>
+                                <!--Select for the Countries Arrived from-->
+                                <select class="form-control" onchange="myFunction(this)">
+                                    <option>None</option>
+                                    <option>United States of America</option>
+                                    <option>United Kigdom</option>
+                                    <option>Iran</option>
+                                    <option>Spain</option>
+                                    <option>Italy</option>
+                                    <option>Germany</option>
+                                    <option>UAE</option>
+                                    <option>Russia</option>
+                                    <option>Australia</option>
+                                    <option>China</option>
+                                </select>
+
+                            </div>
+                            <div class="tab-pane fade" id="list-q3" role="tabpanel" aria-labelledby="list-q3-list">What
+                                Symptoms are you Experiencing?.
+                                <br><br>
+                                <!--Checkboxes for the symptoms-->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="q3_1" onclick="add2()" >
+                                    <label class="form-check-label" for="q3_1">
+                                        High Fever
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="q3_2" onclick="add2()">
+                                    <label class="form-check-label" for="q3_2">
+                                        Dry Cough
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="q3_3" onclick="add3()">
+                                    <label class="form-check-label" for="q3_3">
+                                        Mild Breathing Issue
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="q3_4" onclick ="add3()">
+                                    <label class="form-check-label" for="q3_4">
+                                        Severe Breathing Issue
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="q3_5" onclick="add1()">
+                                    <label class="form-check-label" for="q3_5">
+                                        Diarrhea
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="q3_6" onclick="add1()">
+                                    <label class="form-check-label" for="q3_6">
+                                        Faitigue
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" onclick="disable()" value="" id="q3_7" >
+                                    <label class="form-check-label" for="q3_7" >
+                                        None
+                                    </label>
+                                </div>
+                            </div>
+                            <script type="text/javascript">
+                                    
+                               
+                                
+                                                                   
+                                
+                            
+                            
+                            </script>
+                            <div class="tab-pane fade" id="list-q4" role="tabpanel" aria-labelledby="list-q4-list">
+                                Do
+                                You Smoke?
+                                <br><br>
+                                <!--Radio buttons for Q4-->
+                                <div class='container'>
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="options" id="option2" onclick="add3()">Yes
+                                        </label>
+
+                                        <label class="btn btn-secondary active">
+                                            <input type="radio" name="options" id="option1" checked> No
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="list-q5" role="tabpanel" aria-labelledby="list-q5-list">
+                                Do
+                                you have any Medical Condition?
+                                <br><br>
+                                <!--Checkboxes for the Medical Condition-->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="q5_1" onclick="add3()">
+                                    <label class="form-check-label" for="q5_1">
+                                        Heart Problem
+                                    </label>
+                                </div>
+                                <br>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="q5_2" onclick="add3()">
+                                    <label class="form-check-label" for="q5_2">
+                                        Blood Pressure Issue
+                                    </label>
+                                </div>
+                                <br>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="q5_3" onclick="add2()">
+                                    <label class="form-check-label" for="q5_3">
+                                        Diabetes
+                                    </label>
+                                </div>
+                                <br>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="q5_4" onclick ="add2()">
+                                    <label class="form-check-label" for="q5_4">
+                                        Bones Issue
+                                    </label>
+                                </div>
+                                <br>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" onclick="disable2()" value="" id="q5_5" >
+                                    <label class="form-check-label"  for="q5_5">
+                                        None
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="list-q6" role="tabpanel" aria-labelledby="list-q6-list">
+                                How many members in your Family?
+                                <br><br>
+                                <!--Spinner for the Family-->
+                                <select class="form-control" >
+                                    <option>None</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>4+</option>
+
+                                </select>
+
+                            </div>
+                            <div class="tab-pane fade" id="list-q7" role="tabpanel" aria-labelledby="list-q7-list">
+                                Have
+                                you met the Doctor recently?
+                                <br><br>
+                                <!--Radio buttons for Q7-->
+                                <div class='container'>
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="options" id="option2" onclick="add3()">Yes
+                                        </label>
+
+                                        <label class="btn btn-secondary active">
+                                            <input type="radio" name="options" id="option1" checked onclick="add2()"> No
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-outline-success"  data-toggle="modal" data-target="#exampleModalLong"  >Submit</button>
+            <!-- Modal when Susceptibility for any modification required, Modal First-->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you have given Appropriate Answers?
+      </div>
+      <div class="modal-footer">
+        <button type="button"  class="btn btn-secondary" data-dismiss="modal">Change Answers</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong2" id="btn2">Yes</button>
+        <!--Modal for Yes in Second Modal-->
+        <div class="modal fade" id="exampleModalLong2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle" style="font-family:montserrat;">Your Susceptibility Score is:</h5>
+      </div>
+      <div class="modal-body">
+        <h1 class="text-center" id ="sscore" style="font-family:montserrat;"></h1>
+        <p style="color:black;"id ="score_des">You have High Susceptibility Score, Please Click Below </p>
+    </div>
+      <div class="modal-footer">
+        <a type="button" class="btn btn-primary" style="color:white;" href="http://127.0.0.1:8000/profile/maps/" >Book an Appointment</a>
+      </div>
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+            <button type="button" class="btn btn-outline-danger">Reset</button>
+
+        </div>
+        <br>
+        <br>
+
+
+        <br><br><br><br><br><br>
+        <div class="footer-copyright text-center py-3" style="color:white">© 2020 Copyright:
+            <a href="#"> virusbaba.com</a>
+        </div>
+        <!-- Copyright -->
+
+
+        <!-- Footer -->
+        <p translate="yes" style="font-family:montserrat;color:white;" align="center">Application Developed by:
+            Nilesh
+            Ohol.</p>
+
+
+    </div>
+    {% endblock %}
+</body>
